@@ -7,7 +7,8 @@
       "activeTab",
       "storage",
       "scripting",
-      "contextMenus"
+      "contextMenus",
+      "tabs"
     ],
     "action": {
       "default_popup": "popup.html",
@@ -22,8 +23,12 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://www.linkedin.com/*"],
+        "matches": ["https://www.linkedin.com/mynetwork/invite-connect/connections/*"],
         "js": ["content.js"]
+      },
+      {
+        "matches": ["https://www.linkedin.com/in/*"],
+        "js": ["profile.js"]
       }
     ],
     "icons": {
@@ -32,5 +37,4 @@
       "128": "icon128.png"
     }
   }
-  
   
