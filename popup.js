@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
                   });
                 });
               } else {
-                // All profiles processed, save data and enable download
                 chrome.storage.local.set({ connections: connections }, () => {
                   console.log('All locations scraped', connections);
                   displayData(connections);
@@ -48,9 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('download').addEventListener('click', () => {
       chrome.storage.local.get(['connections'], (result) => {
         const data = result.connections || [];
-        // Add headers
         const headers = 'First Name,Last Name,Profile Heading,Location\n';
-        // Ensure that fields with commas are encapsulated in quotes
         const csv = headers + data.map(row => `"${row.firstName}","${row.lastName}","${row.profileHeading}","${row.location}"`).join('\n');
         const blob = new Blob([csv], { type: 'text/csv' });
         const url = URL.createObjectURL(blob);

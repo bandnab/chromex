@@ -9,16 +9,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const profileUrlElement = card.querySelector('a[data-control-name="connection_profile"]');
         const profileUrl = profileUrlElement ? profileUrlElement.href : '';
   
-        console.log("nameElement:", nameElement);
-        console.log("profileHeadingElement:", profileHeadingElement);
-        console.log("profileUrlElement:", profileUrlElement);
-  
-        // Adjust name and profile heading
         let firstName = '';
         let lastName = '';
         let profileHeading = profileHeadingText;
   
-        // Split name and handle cases with credentials
         if (nameText.includes(',')) {
           const nameParts = nameText.split(',');
           firstName = nameParts[0].split(' ')[0];
@@ -35,8 +29,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         console.log('Connections saved', connections);
         sendResponse({ success: true, connections: connections });
       });
+    } else if (request.action === 'scrapeLocation') {
+      const locationElement = document.querySelector('.text-body-small.inline.t-black--light.break-words');
+      const location = locationElement ? locationElement.innerText : 'undefined';
+      sendResponse({ location });
     }
-    return true; // Indicates that the response will be sent asynchronously
+    return true; // Keeps the message channel open for sendResponse
   });
-  
   
