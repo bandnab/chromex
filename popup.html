@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>LinkedIn Connection Scraper</title>
+  <title>LinkedIn Connection Scraper</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #scrapeBtn { padding: 10px; margin: 10px 0; background-color: #0073b1; color: white; border: none; cursor: pointer; }
+  </style>
 </head>
 <body>
-    <h1>LinkedIn Connection Scraper</h1>
-    <button id="scrape">Scrape Connections</button>
-    <div id="result"></div>
-    <button id="download">Download Data</button>
-    <script src="popup.js"></script>
-</body>
-</html>
+  <h2>LinkedIn Connection Scraper</h2>
+  <button id="scrapeBtn">Scrape Connections</button>
+  <div id="status"></div>
+  <div id="result"></div>
+  <button id="downloadBtn">Download CSV</button>
 
+</body>
+<script src="popup.js"></script>
+</html>
