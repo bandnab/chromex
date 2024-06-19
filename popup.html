@@ -1,19 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LinkedIn Connection Scraper</title>
   <style>
-    body { font-family: Arial, sans-serif; }
-    #scrapeBtn { padding: 10px; margin: 10px 0; background-color: #0073b1; color: white; border: none; cursor: pointer; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #0073b1;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #0073b1;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #005a8d;
+    }
+    #result {
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #0073b1;
+      color: white;
+    }
   </style>
 </head>
 <body>
-  <h2>LinkedIn Connection Scraper</h2>
-  <button id="scrapeBtn">Scrape Connections</button>
-  <div id="status"></div>
+  <h1>LinkedIn Connection Scraper</h1>
+  <button id="scrape">Scrape Connections</button>
   <div id="result"></div>
-  <button id="downloadBtn">Download CSV</button>
-
+  <button id="download">Download Data</button>
+  <script src="popup.js"></script>
 </body>
-<script src="popup.js"></script>
 </html>

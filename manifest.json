@@ -2,14 +2,13 @@
     "manifest_version": 3,
     "name": "LinkedIn Connection Scraper",
     "version": "1.0",
-    "description": "Scrapes LinkedIn connections of a specified profile.",
+    "description": "Scrapes LinkedIn connections information.",
     "permissions": [
       "activeTab",
+      "storage",
       "scripting",
-      "storage"
-    ],
-    "host_permissions": [
-      "https://www.linkedin.com/*"
+      "contextMenus",
+      "tabs"
     ],
     "action": {
       "default_popup": "popup.html",
@@ -24,9 +23,18 @@
     },
     "content_scripts": [
       {
-        "matches": ["https://www.linkedin.com/*"],
+        "matches": ["https://www.linkedin.com/mynetwork/invite-connect/connections/*"],
         "js": ["content.js"]
+      },
+      {
+        "matches": ["https://www.linkedin.com/in/*"],
+        "js": ["profile.js"]
       }
-    ]
+    ],
+    "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   }
   
